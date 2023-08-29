@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean id="emp" class="com.boss.bean.Employee" autowire="byName">
+		<property name="empid" value="1001" />
+		<property name="name" value="Kartik"/>
+		<property name="salary" value="178000"/>
+		<!-- <property name="address" ref="add"/> -->
+	</bean>
+	
+	<bean name="address" class="com.boss.bean.Address">
+		<property name="city" value="Blr"/>
+		<property name="country" value="India"/>
+		<property name="zip" value="110070"/>
+	</bean>
+	
+	<bean id="add" class="com.boss.bean.Address">
+		<property name="city" value="Delhi"/>
+		<property name="country" value="India"/>
+		<property name="zip" value="110030"/>
+	</bean>
+	
+	<bean id="eService" class="com.boss.service.EmployeeService">
+		<constructor-arg name="emp" ref="emp"/>
+	</bean>
+</beans>
