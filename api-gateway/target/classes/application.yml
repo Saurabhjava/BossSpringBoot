@@ -1,0 +1,20 @@
+server:
+  port: 7575
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: exchangeService
+        uri: lb://EXCHANGE-SERVICE
+        predicates:
+        - Path=/exchange/**
+      - id: conversionService
+        uri: lb://CONVERSION-SERVICE
+        predicates:
+        - Path=/conversion/**
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
