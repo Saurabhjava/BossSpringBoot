@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql_db:3306/bosch 
+    username: saurabh
+    password: Saurabh123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true   
